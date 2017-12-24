@@ -82,7 +82,7 @@ function init() {
 
     dots.forEach(d => {
       geometry.vertices.push(
-        new THREE.Vector3(d[0], d[1], 0)
+        new THREE.Vector3(d[0] - 250, d[1] - 150, 0)
       );
     });
     console.log(triangles.length);
@@ -140,8 +140,8 @@ function animate() {
     // });
     mydots.forEach((d,index) => {
       d.think(pos);
-      geometry.vertices[index].z = d.z;
-      // geometry.vertices[index].z = 50*Perlin(d.x/100,d.y/100,time/100);
+      geometry.vertices[index].z = -d.z;
+      geometry.vertices[index].z = 50*Perlin(d.x/100,d.y/100,time/100);
     });
     geometry.verticesNeedUpdate = true;
   }
